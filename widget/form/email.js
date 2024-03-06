@@ -1,4 +1,4 @@
-export default function Email () {
+export default function Email() {
   const email = document.querySelector('#email')
   emailValidate(email)
 }
@@ -17,7 +17,7 @@ export const isEmailInvalid = (value = '') => {
      * @param {Element} formInput - the input element to validate
      * @return {void}
      */
-function emailValidate (formInput = Element) {
+function emailValidate(formInput = Element) {
   formInput.addEventListener('input', (e) => e.target.classList.toggle(
     'is-invalid',
     isEmailInvalid(e.target.value)
