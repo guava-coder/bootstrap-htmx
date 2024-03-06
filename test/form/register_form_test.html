@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <link rel="stylesheet" href="/dependencies/bootstrap/bootstrap.min.css">
     <script src="/dependencies/bootstrap/bootstrap.bundle.min.js"></script>
@@ -29,9 +32,11 @@
                             const userData = Object.fromEntries(formData)
                             alert(JSON.stringify(userData))
                         } else {
+                            document.querySelector('#confirmpw').value = ''
                             alert('form has invalid input')
                         }
                     } else {
+                        document.querySelector('#confirmpw').value = ''
                         alert('form not complete')
                     }
                 })
@@ -39,3 +44,5 @@
         </script>
     </div>
 </body>
+
+</html>

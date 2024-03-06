@@ -10,4 +10,4 @@ import playjs from '../../dependencies/playjs/playjs.js'
         <button type="submit" class="btn btn-primary btn-block mb-4" id="submit">submit</button>
     </div>`
   u.assertNotTrue(document.querySelector('#Name') === null && document.querySelector('#Email') === null)
-})(playjs('testGetForm'))
+})(playjs('testGetForm'));

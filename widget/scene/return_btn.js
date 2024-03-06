@@ -1,6 +1,4 @@
-Return()
-
-function Return () {
+(()=> {
   try {
     const scenePrev = document.querySelector('#scenePrev')
     const returnBtn = document.querySelector('#returnBtn')
@@ -9,4 +7,4 @@ function Return () {
   } catch (err) {
     console.log(err)
   }
-}
+})();
