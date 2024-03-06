@@ -4,7 +4,7 @@
  * @param {string} n - the name of the UnitTest object
  * @return {Object} an object with assertTrue and assertNotTrue methods
  */
-export default function UnitTest(n = 'UnitTest') {
+export default function PlayJs(n = 'UnitTest') {
   return {
     assertTrue: (bool = true) => assertTrue(bool, n),
     assertNotTrue: (bool = true) => assertNotTrue(bool, n)
