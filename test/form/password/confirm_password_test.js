@@ -1,4 +1,4 @@
-import { isPasswordNotConfirmed } from './confirm_password.js'
+import { isPasswordNotConfirmed } from '../../../widget/form/password/confirm_password.js'
 import playjs from '../../../dependencies/playjs/playjs.js'
 
 function testIsPasswordConfirm(u = playjs()) {

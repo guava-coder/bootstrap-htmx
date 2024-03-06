@@ -1,0 +1,6 @@
+<div class="container" style="overflow-y: auto;">
+    <div hx-get="/widget/scene/home_btn.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <h1>This is scene one</h1>
+    <button class="btn btn-primary" hx-get="/test/scene/scene_two.html" hx-trigger="click" hx-swap="innerHTML"
+        hx-target="#app">Go to scene two</button>
+</div>

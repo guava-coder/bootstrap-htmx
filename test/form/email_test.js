@@ -1,4 +1,4 @@
-import * as email from './email.js'
+import * as email from '../../widget/form/email.js'
 import playjs from '../../dependencies/playjs/playjs.js' 
 
 function testIsEmailValid(u = playjs()) {
