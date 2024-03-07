@@ -15,7 +15,14 @@
     <div class="container" style="overflow-y: auto;">
         <div class="p-4 g-col-6"></div>
         <div hx-get="/template/home_btn.html" hx-trigger="load" hx-swap="outerHTML"></div>
-        <div id="wait" hx-get="/template/login_form.html" hx-trigger="load" hx-swap="outerHTML"></div>
+        <div class="p-4 g-col-6"></div>
+        <form id="loginForm" method="post">
+            <div hx-get="/template/email.html" hx-trigger="load" hx-swap="outerHTML"></div>
+            <div hx-get="/template/password.html" hx-trigger="load" hx-swap="outerHTML"></div>
+            <div class="text-center">
+                <button type="submit" id="submit" class="btn btn-primary bi bi-box-arrow-in-right"> Login</button>
+            </div>
+        </form>
         <script src="/src/form/email.js"></script>
         <script src="/src/form/password/password.js" type="module"></script>
     </div>
