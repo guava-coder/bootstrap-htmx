@@ -1,0 +1,8 @@
+<div class="p-4 g-col-6"></div>
+<form id="loginForm" method="post">
+    <div hx-get="/template/email.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <div hx-get="/template/password.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <div class="text-center">
+        <button type="submit" id="submit" class="btn btn-primary bi bi-box-arrow-in-right"> Login</button>
+    </div>
+</form>
