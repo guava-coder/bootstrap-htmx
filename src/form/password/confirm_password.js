@@ -7,7 +7,7 @@ import Bootstrap5ShowPassword from './bootstrap5_show_password.js'
  * @param {string} psw - The password to be checked
  * @return {boolean} Indicates whether the password is invalid or not
  */
-export function isPasswordInvalid(psw = '') {
+export function isPasswordInvalid (psw = '') {
   return !/^(?=.*\d)(?=.*[A-Za-z])([^\s]){8,32}$/.test(psw)
 }
 
@@ -16,14 +16,13 @@ export function isPasswordInvalid(psw = '') {
  * @param {string} [confirm='']
  * @return {boolean}
  */
-export function isPasswordNotConfirmed(input = '', confirm = '') {
+export function isPasswordNotConfirmed (input = '', confirm = '') {
   return input !== confirm || input === '' || isPasswordInvalid(confirm)
 }
 
 (() => {
   document.addEventListener('htmx:afterRequest', () => {
     try {
-
       const psw = document.querySelector('#password')
       const confirmedPw = document.querySelector('#confirmpw')
 
@@ -52,4 +51,4 @@ export function isPasswordNotConfirmed(input = '', confirm = '') {
       console.log(err)
     }
   })
-})();
+})()

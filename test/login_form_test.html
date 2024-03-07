@@ -19,21 +19,7 @@
         <script src="/src/form/email.js"></script>
         <script src="/src/form/password/password.js" type="module"></script>
     </div>
-    <script>
-        (() => {
-            document.querySelector('#wait').addEventListener('htmx:afterRequest', e => {
-                const form = document.querySelector('#loginForm')
-                form.addEventListener('submit', e => {
-                    e.preventDefault()
-
-                    const formData = new FormData(e.target)
-                    const userData = Object.fromEntries(formData)
-                    alert(JSON.stringify(userData))
-                })
-
-            })
-        })()
-    </script>
+    <script src="/test/login_form_test.js"></script>
 </body>
 
 </html>

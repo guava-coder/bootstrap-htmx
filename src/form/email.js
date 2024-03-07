@@ -2,7 +2,7 @@
  * @param {string} [value='']
  * @return {boolean}
  */
-function isEmailInvalid(value = '') {
+function isEmailInvalid (value = '') {
   return !/^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(value)
 }
 
@@ -16,4 +16,4 @@ function isEmailInvalid(value = '') {
       ))
     }
   })
-})();
+})()
