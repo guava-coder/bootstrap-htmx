@@ -13,10 +13,13 @@
     <div class="container" style="overflow-y: auto;">
         <div class="p-4 g-col-6"></div>
         <div hx-get="/widget/scene/home_btn.html" hx-trigger="load" hx-swap="outerHTML"></div>
-        <div hx-get="/template/register_template.html" hx-trigger="load" hx-swap="outerHTML"></div>
-        <script>
-            setTimeout(() => {
-                document.querySelector('#registerForm').addEventListener('submit', e => {
+        <div id="wait" hx-get="/widget/form/register_form.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    </div>
+    <script>
+        (() => {
+            document.querySelector('#wait').addEventListener('htmx:afterRequest', e => {
+                const form = document.querySelector('#registerForm')
+                form.addEventListener('submit', e => {
                     e.preventDefault()
 
                     let flag = true
@@ -40,9 +43,9 @@
                         alert('form not complete')
                     }
                 })
-            }, 50)
-        </script>
-    </div>
+            })
+        })();
+    </script>
 </body>
 
 </html>
