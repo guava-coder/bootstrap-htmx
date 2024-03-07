@@ -1,4 +1,4 @@
-import * as FormRenderer from '../../widget/form/form_renderer.js'
+import * as FormRenderer from '../../src/form/form_renderer.js'
 import playjs from '../../dependencies/playjs/playjs.js'
 
 ((u = playjs())=> {

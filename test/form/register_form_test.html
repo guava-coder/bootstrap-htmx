@@ -12,12 +12,14 @@
 <body>
     <div class="container" style="overflow-y: auto;">
         <div class="p-4 g-col-6"></div>
-        <div hx-get="/widget/scene/home_btn.html" hx-trigger="load" hx-swap="outerHTML"></div>
-        <div id="wait" hx-get="/widget/form/register_form.html" hx-trigger="load" hx-swap="outerHTML"></div>
+        <div hx-get="/template/home_btn.html" hx-trigger="load" hx-swap="outerHTML"></div>
+        <div id="wait" hx-get="/template/register_form.html" hx-trigger="load" hx-swap="outerHTML"></div>
+        <script src="/src/form/email.js"></script>
+        <script type="module" src="/src/form/password/confirm_password.js"></script>
     </div>
     <script>
         (() => {
-            document.querySelector('#wait').addEventListener('htmx:afterRequest', e => {
+            document.querySelector('#wait').addEventListener('htmx:afterRequest', () => {
                 const form = document.querySelector('#registerForm')
                 form.addEventListener('submit', e => {
                     e.preventDefault()

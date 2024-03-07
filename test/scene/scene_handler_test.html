@@ -15,7 +15,8 @@
     <div id="app">
         <div hx-get="/test/scene/scene_one.html" hx-trigger="load" hx-swap="innerHTML"></div>
     </div>
-    <div hx-get="/widget/scene/scene_handler.html" hx-swap="innerHTML" hx-trigger="load"></div>
+    <div hx-get="/template/scene_handler.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <script src="/src/scene/scene_handler.js"></script>
 </body>
 
 </html>
