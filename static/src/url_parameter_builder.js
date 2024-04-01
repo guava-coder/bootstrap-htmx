@@ -50,16 +50,22 @@ function setFiltersBehaviour (searchInput = Element, filters = [{ name: '', valu
 
     cbox.onclick = (e) => {
       const checkbox = e.target
-
-      addNewFilterToInputWhenChecked(checkbox, searchInput)
-
       const filter = `${checkbox.value}=`
-      removeFilter(filter, searchInput)
+
+      if (isCheckedAndFilterNotIncluded(checkbox, searchInput)) {
+        addFilter(checkbox.value, filter, searchInput)
+      } else {
+        removeFilter(filter, searchInput)
+      }
     }
 
     filterInput.onclick = () => {
       cbox.checked = true
-      addNewFilterToInputWhenChecked(cbox, searchInput)
+
+      const filter = `${cbox.value}=`
+      if (isCheckedAndFilterNotIncluded(cbox, searchInput)) {
+        addFilter(cbox.value, filter, searchInput)
+      }
     }
 
     filterInput.onchange = (e) => {
@@ -80,11 +86,9 @@ function setFiltersBehaviour (searchInput = Element, filters = [{ name: '', valu
   }
 }
 
-function addNewFilterToInputWhenChecked (checkbox = Element, searchInput = Element) {
+function isCheckedAndFilterNotIncluded (checkbox = Element, searchInput = Element) {
   const filter = `${checkbox.value}=`
-  if (checkbox.checked && !searchInput.value.includes(filter)) {
-    addFilter(checkbox.value, filter, searchInput)
-  }
+  return checkbox.checked && !searchInput.value.includes(filter)
 }
 
 function removeFilter (filter = '', searchInput = Element) {
