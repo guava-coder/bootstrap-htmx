@@ -16,28 +16,37 @@
         <div class="p-4 g-col-6"></div>
         <div hx-get="/template/home_btn.html" hx-trigger="load" hx-swap="outerHTML"></div>
         <div class="p-4 g-col-6"></div>
-        <div hx-get="/template/filters.html" hx-trigger="load" hx-swap="outerHTML"></div>
+        <div class="input-group">
+            <input type="text" class="form-control" id="searchInput" aria-describedby="helpId" placeholder="">
+            <button id="confirmSearch" class="btn btn-primary " type="button">Confirmed</button>
+        </div>
+        <ul id="searchFilter" class="list-group ">
+        </ul>
         <script type="module">
-            import Filters from '/src/filters.js'
+            import urlParameterBuilder from '/src/url_parameter_builder.js'
             const filters = [
                 {
                     name: 'Product Title',
-                    value: 'title'
+                    value: 'title',
+                    type: 'text'
                 },
                 {
                     name: 'Minimum Price',
-                    value: 'min'
+                    value: 'min',
+                    type: 'number'
                 },
                 {
                     name: 'Max Price',
-                    value: 'max'
+                    value: 'max',
+                    type: 'number'
                 },
                 {
                     name: 'Publisher or Brand',
-                    value: 'publisher'
+                    value: 'publisher',
+                    type: 'text'
                 }
             ]
-            setTimeout(() => Filters('#searchInput', document.querySelector('#searchFilter'), filters), 500);
+            urlParameterBuilder('#searchInput', document.querySelector('#searchFilter'), filters)
         </script>
     </div>
 </body>
