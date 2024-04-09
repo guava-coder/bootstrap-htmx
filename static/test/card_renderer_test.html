@@ -8,7 +8,7 @@
     <script src="/dependencies/bootstrap/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="/dependencies/htmx/htmx.min.js"></script>
-    <title>date picker test</title>
+    <title> card renderer test</title>
 </head>
 
 <body>
@@ -16,15 +16,20 @@
         <div class="p-4 g-col-6"></div>
         <div hx-get="/template/home_btn.html" hx-trigger="load" hx-swap="outerHTML"></div>
         <div class="p-4 g-col-6"></div>
-        <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="datePicker">
-            <label for="datePicker">Date</label>
-        </div>
-        <button class="btn btn-primary" onclick="alert(document.querySelector('#datePicker').value)">show date</button>
+        <div id="cardResult"></div>
     </div>
-    <script type="module" >
-        import  DatePicker  from '/src/date_picker.js'
-        DatePicker({element: document.querySelector('#datePicker'), min: '1850-01-01'})
+    <script type="module">
+        import CardRenderer from "/src/card_renderer.js"
+        CardRenderer(
+            [
+                { "Product_title": "Pen", "Price": 10 },
+                { "Product_title": "Apple", "Price": 15 },
+                { "Product_title": "Chacolate", "Price": 35 },
+                { "Product_title": "Recipe", "Price": 199 },
+                { "Product_title": "Kitchen knife", "Price": 359 },
+                { "Product_title": "Product 6", "Price": 60 },
+            ],
+            document.querySelector("#cardResult"))
     </script>
 </body>
 
