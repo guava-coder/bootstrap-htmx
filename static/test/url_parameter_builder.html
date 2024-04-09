@@ -46,7 +46,11 @@
                     type: 'text'
                 }
             ]
-            urlParameterBuilder('#searchInput', document.querySelector('#searchFilter'), filters)
+            urlParameterBuilder(
+                document.querySelector('#searchInput'),
+                document.querySelector('#searchFilter'),
+                filters
+            )
         </script>
     </div>
 </body>

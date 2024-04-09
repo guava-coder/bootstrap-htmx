@@ -12,10 +12,8 @@ const Filter = {
  * @param {Array} filters - an array of filter objects containing name and value properties
  * @return {void}
  */
-export default function UrlParameterBuilder (inputId = '', searchFilter = Element, filters = [Filter]) {
+export default function UrlParameterBuilder (searchInput = Element, searchFilter = Element, filters = [Filter]) {
   generateFilters(searchFilter, filters)
-
-  const searchInput = document.querySelector(inputId)
   setFiltersBehaviour(searchInput, filters)
 }
 
