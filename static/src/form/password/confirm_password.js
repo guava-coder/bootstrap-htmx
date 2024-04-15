@@ -21,32 +21,34 @@ export function isPasswordNotConfirmed (input = '', confirm = '') {
 }
 
 (() => {
-  try {
-    const psw = document.querySelector('#password')
-    const confirmedPw = document.querySelector('#confirmpw')
+  document.addEventListener('htmx:afterRequest', () => {
+    try {
+      const psw = document.querySelector('#password')
+      const confirmedPw = document.querySelector('#confirmpw')
 
-    if (psw && confirmedPw) {
-      psw.addEventListener('input', (e) => {
-        e.target.classList.toggle(
-          'is-invalid',
-          isPasswordInvalid(e.target.value)
-        )
-        confirmedPw.classList.toggle(
-          'is-invalid',
-          isPasswordNotConfirmed(confirmedPw.value, e.target.value)
-        )
-      })
+      if (psw && confirmedPw) {
+        psw.addEventListener('input', (e) => {
+          e.target.classList.toggle(
+            'is-invalid',
+            isPasswordInvalid(e.target.value)
+          )
+          confirmedPw.classList.toggle(
+            'is-invalid',
+            isPasswordNotConfirmed(confirmedPw.value, e.target.value)
+          )
+        })
 
-      confirmedPw.addEventListener('input', (e) =>
-        e.target.classList.toggle(
-          'is-invalid',
-          isPasswordNotConfirmed(psw.value, e.target.value)
-        ))
+        confirmedPw.addEventListener('input', (e) =>
+          e.target.classList.toggle(
+            'is-invalid',
+            isPasswordNotConfirmed(psw.value, e.target.value)
+          ))
 
-      Bootstrap5ShowPassword(document.querySelector('#showPsw'), '#password')
-      Bootstrap5ShowPassword(document.querySelector('#showConfirmPsw'), '#confirmpw')
+        Bootstrap5ShowPassword(document.querySelector('#showPsw'), '#password')
+        Bootstrap5ShowPassword(document.querySelector('#showConfirmPsw'), '#confirmpw')
+      }
+    } catch (err) {
+      console.log(err)
     }
-  } catch (err) {
-    console.log(err)
-  }
+  })
 })()
